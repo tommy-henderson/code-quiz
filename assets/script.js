@@ -78,6 +78,7 @@ function beginQuiz() {
     timeLeft.classList.remove("hide")
     numberCorrect.classList.remove("hide")
     result.classList.remove("hide")
+    startQuiz.classList.add("hide")
     loadQuestion()
     setTime()
 }
@@ -92,6 +93,7 @@ function endQuiz() {
     clearInterval(timerInterval);
     timeEl.classList.add("hide");
     timeLeft.classList.add("hide")
+    startQuiz.classList.remove("hide")
 }
 
 function loadQuestion() {
