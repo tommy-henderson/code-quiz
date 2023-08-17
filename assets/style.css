@@ -1,3 +1,11 @@
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100vw;
+    height: 100 vw;
+}
+
 h1 {
     justify-content: center;
     text-align: center;
@@ -8,35 +16,20 @@ justify-content: center;
 text-align: center;
 }
 
-#answer1 {
-    display: block;
-    width: 30%;
-    margin: 1%;
-    text-align: center;
-}
-#answer2 {
-    display: block;
-    width: 30%;
-    margin: 1%;
-    text-align: center;
-}
-#answer3 {
-    display: block;
-    width: 30%;
-    margin: 1%;
-    text-align: center;
-}
-#answer4 {
-    display: block;
-    width: 30%;
-    margin: 1%;
-    text-align: center;
-}
  .main {
     border: solid;
     justify-content: center;
     align-items: center;
     text-align: center;
     width: 50%;
+ }
+
+ #answer-buttons {
+    display: grid;
+    margin: 1%
+ }
+
+ .hide {
+    display: none;
  }
 

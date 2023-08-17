@@ -58,20 +58,20 @@ var time = 60;
 function beginQuiz() {
     currentQuestion = 0;
     score = 0;
-    answer1.hidden = false
-    answer2.hidden = false
-    answer3.hidden = false
-    answer4.hidden = false
+    answer1.classList.remove("hide");
+    answer2.classList.remove("hide");
+    answer3.classList.remove("hide");
+    answer4.classList.remove("hide");
     numberCorrect = 0;
     loadQuestion()
 }
 
 function endQuiz() {
     questionEl.textContent = "Quiz Complete"
-    answer1.hidden = true
-    answer2.hidden = true
-    answer3.hidden = true
-    answer4.hidden = true
+    answer1.classList.add("hide");
+    answer2.classList.add("hide");
+    answer3.classList.add("hide");
+    answer4.classList.add("hide");
 }
 
 function loadQuestion() {
@@ -86,16 +86,18 @@ function loadQuestion() {
     }
 }
 
-function checkAnswer() {
+// make sure function to check answer works
+// adds 1 to the score counter
+// subtracts 10 from timer
 
-    if ((this) == (questions[currentQuestion].correct)) {
-        result.textContent = numberCorrect++
+function checkAnswer() {
+    /*
+   if {
     } else {
         time -= 10;
         if (time < 1) {
             endQuiz();
-        }
-    }
+        } */
 
     currentQuestion++;
     loadQuestion();
@@ -110,3 +112,5 @@ startQuiz.addEventListener("click", e => {
 
 answerButtons.addEventListener("click", checkAnswer)
 
+// add timer function
+// add highscore function using local storage
