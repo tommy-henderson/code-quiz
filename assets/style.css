@@ -1,69 +1,79 @@
+/* Styling for main body. Added background and centered content */
 body {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    width: 100vw;
-    height: 100 vw;
-    background-color: aqua;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   width: 100vw;
+   height: 100 vw;
+   background-color: aqua;
 }
 
+/* Centers header */
 h1 {
-    justify-content: center;
-    text-align: center;
+   justify-content: center;
+   text-align: center;
 }
 
+/* centers question and changes text*/
 #question {
-justify-content: center;
-text-align: center;
+   justify-content: center;
+   text-align: center;
+   font-size: 24px;
+   margin-top: 10px;
+   margin-bottom: 10px;
 }
 
- .main {
-    border: solid;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    width: 50%;
-    background-color: white;
- }
+/* adds border and centers main area with text/button fields */
+.main {
+   border: solid;
+   justify-content: center;
+   align-items: center;
+   text-align: center;
+   width: 50%;
+   background-color: white;
+}
 
- #answer-buttons {
-    display: grid;
-    margin: 1%;
- }
+/* centers buttons */
+#answer-buttons {
+   display: grid;
+   margin: 1%;
+}
 
- #answer1 {
-    margin: 10px 100px 10px 100px;
- }
- #answer2 {
-    margin: 10px 100px 10px 100px;
- }
- #answer3 {
-    margin: 10px 100px 10px 100px;
- }
- #answer4 {
-    margin: 10px 100px 10px 100px;
- }
+/* gives buttons margins so they're not immediately stacked on top of one another */
+#answer1 {
+   margin: 10px 100px 10px 100px;
+}
 
- .hide {
-    display: none;
- }
+#answer2 {
+   margin: 10px 100px 10px 100px;
+}
 
+#answer3 {
+   margin: 10px 100px 10px 100px;
+}
+
+#answer4 {
+   margin: 10px 100px 10px 100px;
+}
+
+/* hide class to be used in JS to hide unecessary elements */
+.hide {
+   display: none;
+}
+
+/* centers time container */
 #time-container {
-    display: flex;
-    justify-content: center;
+   display: flex;
+   justify-content: center;
 }
 
-#question {
-    font-size: 24px;
-    margin-top: 10px;
-    margin-bottom: 10px;
-}
-
+/* adds margin to start quiz button */
 #startquiz {
-    margin-bottom: 20px;
+   margin-bottom: 20px;
 }
 
+/* adds margin to high score button */
 #showhs {
-    margin-top: 10px;
-    margin-bottom: 10px;
+   margin-top: 10px;
+   margin-bottom: 10px;
 }
