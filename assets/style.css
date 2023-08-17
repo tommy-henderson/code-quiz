@@ -26,10 +26,27 @@ text-align: center;
 
  #answer-buttons {
     display: grid;
-    margin: 1%
+    margin: 1%;
+ }
+
+ #answer1 {
+    margin: 10px 100px 10px 100px;
+ }
+ #answer2 {
+    margin: 10px 100px 10px 100px;
+ }
+ #answer3 {
+    margin: 10px 100px 10px 100px;
+ }
+ #answer4 {
+    margin: 10px 100px 10px 100px;
  }
 
  .hide {
     display: none;
  }
 
+#time-container {
+    display: flex;
+    justify-content: center;
+}

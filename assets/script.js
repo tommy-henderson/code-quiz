@@ -51,10 +51,20 @@ var answerButtons = document.getElementById("answer-buttons")
 var startQuiz = document.getElementById("startquiz")
 var numberCorrect = document.getElementById("numberCorrect");
 var answered = ""
+var timeEl = document.getElementById("timer")
+var timeLeft = document.getElementById("timeleft")
 
 var currentQuestion = 0;
 var score = 0;
-var time = 60;
+var secondsLeft = 60;
+var timerInterval = null;
+
+timeLeft.classList.add("hide");
+answer1.classList.add("hide");
+answer2.classList.add("hide");
+answer3.classList.add("hide");
+answer4.classList.add("hide");
+result.classList.add("hide");
 
 function beginQuiz() {
     currentQuestion = 0;
@@ -63,8 +73,13 @@ function beginQuiz() {
     answer2.classList.remove("hide");
     answer3.classList.remove("hide");
     answer4.classList.remove("hide");
-    numberCorrect = 0;
+    document.getElementById("numberCorrect").innerHTML = score;
+    timeEl.classList.remove("hide")
+    timeLeft.classList.remove("hide")
+    numberCorrect.classList.remove("hide")
+    result.classList.remove("hide")
     loadQuestion()
+    setTime()
 }
 
 function endQuiz() {
@@ -73,6 +88,10 @@ function endQuiz() {
     answer2.classList.add("hide");
     answer3.classList.add("hide");
     answer4.classList.add("hide");
+    secondsLeft = 60;
+    clearInterval(timerInterval);
+    timeEl.classList.add("hide");
+    timeLeft.classList.add("hide")
 }
 
 function loadQuestion() {
@@ -87,17 +106,16 @@ function loadQuestion() {
     }
 }
 
-// adds 1 to the score counter
-// subtracts 10 from timer
-
 function checkAnswer() {
     if (answered == questions[currentQuestion].correct) {
         score++;
         document.getElementById("numberCorrect").innerHTML = score;
     } else {
-        time -= 10;
+        secondsLeft -= 10;
+        if (secondsLeft < 0) {
+            endQuiz()
+        }
     }
-
     currentQuestion++;
     loadQuestion();
     if (currentQuestion > currentQuestion.length) {
@@ -125,6 +143,12 @@ answer4.addEventListener("click", e => {
     checkAnswer()
 })
 
-
-// add timer function
-// add highscore function using local storage
+function setTime() {
+    timerInterval = setInterval(function () {
+        secondsLeft--;
+        document.getElementById("timer").innerHTML = secondsLeft;
+        if (secondsLeft < 0) {
+            endQuiz()
+        }
+    }, 1000);
+}
