@@ -50,6 +50,7 @@ var result = document.getElementById("result")
 var answerButtons = document.getElementById("answer-buttons")
 var startQuiz = document.getElementById("startquiz")
 var numberCorrect = document.getElementById("numberCorrect");
+var answered = ""
 
 var currentQuestion = 0;
 var score = 0;
@@ -86,18 +87,16 @@ function loadQuestion() {
     }
 }
 
-// make sure function to check answer works
 // adds 1 to the score counter
 // subtracts 10 from timer
 
 function checkAnswer() {
-    /*
-   if {
+    if (answered == questions[currentQuestion].correct) {
+        score++;
+        document.getElementById("numberCorrect").innerHTML = score;
     } else {
         time -= 10;
-        if (time < 1) {
-            endQuiz();
-        } */
+    }
 
     currentQuestion++;
     loadQuestion();
@@ -105,12 +104,27 @@ function checkAnswer() {
         endQuiz()
     }
 }
-
 startQuiz.addEventListener("click", e => {
     beginQuiz()
 })
 
-answerButtons.addEventListener("click", checkAnswer)
+answer1.addEventListener("click", e => {
+    answered = "a"
+    checkAnswer()
+})
+answer2.addEventListener("click", e => {
+    answered = "b"
+    checkAnswer()
+})
+answer3.addEventListener("click", e => {
+    answered = "c"
+    checkAnswer()
+})
+answer4.addEventListener("click", e => {
+    answered = "d"
+    checkAnswer()
+})
+
 
 // add timer function
 // add highscore function using local storage
