@@ -23,6 +23,22 @@ var questions = [
         d: "Neither the <head> nor the <body> sections are correct",
         correct: "c",
     },
+    {
+        question: "How do you write Hello World in an alert box?",
+        a: "msg('Hello World')",
+        b: "msgBox('Hello World')",
+        c: "alertBox('Hello World')",
+        d: "alert('Hello World')",
+        correct: "d",
+    },
+    {
+        question: "Which operator is used to assign a variable?",
+        a: "X",
+        b: "*",
+        c: "=",
+        d: "-",
+        correct: "c",
+    },
 ];
 
 var questionEl = document.getElementById("question")
@@ -32,18 +48,30 @@ var answer3 = document.getElementById("answer3")
 var answer4 = document.getElementById("answer4")
 var result = document.getElementById("result")
 var answerButtons = document.getElementById("answer-buttons")
-var nextButton = document.getElementById("nextbutton")
 var startQuiz = document.getElementById("startquiz")
+var numberCorrect = document.getElementById("numberCorrect");
 
 var currentQuestion = 0;
 var score = 0;
-var time = 0;
+var time = 60;
 
 function beginQuiz() {
     currentQuestion = 0;
     score = 0;
-    nextButton.innerHTML = "Next";
+    answer1.hidden = false
+    answer2.hidden = false
+    answer3.hidden = false
+    answer4.hidden = false
+    numberCorrect = 0;
     loadQuestion()
+}
+
+function endQuiz() {
+    questionEl.textContent = "Quiz Complete"
+    answer1.hidden = true
+    answer2.hidden = true
+    answer3.hidden = true
+    answer4.hidden = true
 }
 
 function loadQuestion() {
@@ -59,18 +87,21 @@ function loadQuestion() {
 }
 
 function checkAnswer() {
-   /* if ((this) == (questions[currentQuestion].correct)) {
-        result.textContent = "Correct";
+
+    if ((this) == (questions[currentQuestion].correct)) {
+        result.textContent = numberCorrect++
     } else {
         time -= 10;
-        result.textContent = "Wrong";
         if (time < 1) {
             endQuiz();
         }
     }
-*/
+
     currentQuestion++;
     loadQuestion();
+    if (currentQuestion > currentQuestion.length) {
+        endQuiz()
+    }
 }
 
 startQuiz.addEventListener("click", e => {
