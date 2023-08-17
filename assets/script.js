@@ -53,6 +53,7 @@ var numberCorrect = document.getElementById("numberCorrect");
 var answered = ""
 var timeEl = document.getElementById("timer")
 var timeLeft = document.getElementById("timeleft")
+var hsButton = document.getElementById("showhs")
 
 var currentQuestion = 0;
 var score = 0;
@@ -154,3 +155,18 @@ function setTime() {
         }
     }, 1000);
 }
+
+function setHighScore() {
+    hsname = prompt("Enter name for highscore")
+    localStorage.setItem("highscore", score)
+    localStorage.setItem("hsname", hsname)
+}
+
+function showHighScore() {
+    document.getElementById("highscore").innerHTML = "Current High Score is: " + localStorage.getItem("hsname") + " with: " + localStorage.getItem("highscore")
+}
+
+hsButton.addEventListener("click", e => {
+    setHighScore()
+    showHighScore()
+})
