@@ -39,6 +39,22 @@ var questions = [
         d: "-",
         correct: "c",
     },
+    {
+        question: "How do you call a function named myFunction?",
+        a: "myFunction()",
+        b: "myFunction",
+        c: "call myFunction()",
+        d: "call function myFunction()",
+        correct: "a",
+    },
+    {
+        question: "Which of these if statements is correct?",
+        a: "if (i==5)",
+        b: "if i == 5 then",
+        c: "if i = 5 then",
+        d: "if i = 5",
+        correct: "a",
+    },
 ];
 
 var questionEl = document.getElementById("question")
